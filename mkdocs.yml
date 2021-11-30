@@ -1,0 +1,130 @@
+site_name: SegmOnto Documentation
+site_description: SegmOnto Documentation
+repo_name: SegmOnto Home
+repo_url: http://segmonto.github.io/
+edit_uri: ""
+
+# Customization
+extra:
+    social:
+      - icon: fontawesome/brands/github-alt
+        link: https://github.com/SegmOnto/
+      - icon: fontawesome/solid/globe
+        link: https://SegmOnto.github.io
+#      - icon: fontawesome/brands/twitter
+#        link: https://twitter.com/account
+
+use_directory_urls: true
+# pagination
+nav:
+  - Project Home: index.md
+  - Project:
+       - The idea: pj/idea.md
+       - The vocabulary: pj/vocabulary.md
+       - The team: pj/team.md
+  - Production pipeline:
+       - Pipeline: pp/pipeline.md
+       - ALTO: pp/alto.md
+       - TEI: pp/TEI.md
+       - RDF: pp/RDF.md
+       - IIIF: pp/IIIF.md
+  - Guidelines:
+       - Zones:
+         - CustomZone: gd/gdZ/CustomZone.md
+         - DamageZone: gd/gdZ/DamageZone.md
+         - DecorationZone: gd/gdZ/DecorationZone.md
+         - DigitizationArtefactZone: gd/gdZ/DigitizationArtefactZone.md
+         - DropCapitalZone: gd/gdZ/DropCapitalZone.md
+         - MainZone: gd/gdZ/MainZone.md
+         - MarginTextZone: gd/gdZ/MarginTextZone.md
+         - MusicZone: gd/gdZ/MusicZone.md
+         - NumberingZone: gd/gdZ/NumberingZone.md
+         - QuireMarksZone: gd/gdZ/QuireMarksZone.md
+         - RunningTitleZone: gd/gdZ/RunningTitleZone.md
+         - SealZone: gd/gdZ/SealZone.md
+         - StampZone: gd/gdZ/StampZone.md
+         - TableZone: gd/gdZ/TableZone.md
+         - TitlePageZone: gd/gdZ/TitlePageZone.md
+       - Lines:
+         - CustomZone: gd/gdL/CustomLine.md
+         - DefaultLine: gd/gdL/DefaultLine.md
+         - DropCapitalLine: gd/gdL/DropCapitalLine.md
+         - InterlinearLine: gd/gdL/InterlinearLine.md
+         - MusicLine: gd/gdL/MusicLine.md
+         - RubricLine: gd/gdL/RubricLine.md
+       - Syntax: gd/syntax.md
+
+theme:
+    name: 'material'
+    logo: 'assets/icons/s.png'
+    favicon: 'assets/icons/s.png'
+    icon:
+        repo: fontawesome/solid/globe
+    font:
+        text: 'Source Sans Pro'
+        code: 'IBM Plex Mono'
+#    custom_dir: 'theme/'
+    features:
+      - navigation.instant
+    palette:
+        primary: 'white'
+
+
+#plugins
+plugins:
+#  - git-revision-date-localized
+#  - table-reader
+#  - tooltipster-links
+#  - mermaid2
+#  - pheasant
+#  - macros
+#  - mkdocs-versioning:
+#        version: 1.0.0
+  - search:
+        separator: '[\s\-\.]+'
+        lang:
+          - en
+          - fr
+          - it
+          - de
+
+markdown_extensions:
+  - pymdownx.smartsymbols
+#  - lightgallery
+  - pymdownx.mark
+  - markdown.extensions.attr_list
+  - pymdownx.superfences
+      # make exceptions to highlighting of code:
+#      custom_fences:
+#        - name: mermaid
+#          class: mermaid
+#          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.escapeall
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - toc:
+        permalink: true
+  - codehilite:
+        linenums: true
+  - meta
+  - footnotes
+  - admonition
+
+
+extra_css:
+#  - https://unpkg.com/mermaid@8.5.1/dist/mermaid.css
+#  - 'stylesheets/extra.css'
+#  - 'css/lightgallery.min.css'
+#  - 'css/tooltipster.bundle.min.css'
+#  - 'css/extra_tooltip.css'
+#  - 'css/tooltipster-sideTip-light.min.css'
+#  - 'css/extra.css'
+
+extra_javascript:
+#  - 'js/lightgallery.min.js'
+#  - 'js/lightgallery_extra.js'
+#  - 'js/tooltipster.bundle.js'
+#  - https://unpkg.com/mermaid@8.5.1/dist/mermaid.min.js
