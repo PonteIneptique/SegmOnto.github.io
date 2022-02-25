@@ -8,6 +8,7 @@ Necessary for creating such interconnection as well as to query the data is a fo
 
 The novel classes are documented [here](https://github.com/SegmOnto/ontology) while the model used to describe the result of the segmOnto pipeline is available in the image below.
 
+![Schema](../assets/images/schema_text.png)
 
 
 

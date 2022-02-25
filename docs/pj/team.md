@@ -11,6 +11,9 @@ portait Ariane Pinche
 
 Ariane Pinche has a PhD in medieval language and literature. She is currently a postdoctoral fellow at the École nationale des chartes | PSL and is particularly interested in digital editing. She won the Fortier Prize for the best young researcher paper at the Digital Humanities 2019 conference in Utrecht with her two colleagues J. B. Camps and T. Clérice for the paper "Stylometry for Noisy Medieval Data: Evaluating Paul Meyer's Hagiographic Hypothesis". Today, her research interests focus on the construction of medieval corpora for HTR (Handwritten Text Recognition) training.
 
+Nicola Carboni is a Postdoctoral Fellow at the University of Geneva. Previously Research Fellow for the Swiss Art Research Infrastructure at the University of Zurich. He completed his PhD in Engineering, on the topic of Knowledge Representation and Visual Heritage, at the CNRS & NTUA where he was also previously appointed Marie Curie Fellow. His research focuses on the conceptualisation and semantic description of tangible/intangible aspects of the heritage, specifically on the multi-interpretation of the spectrum of visual representations, iconography, ontological conceptualisation and linked data.
+
+
 Additional contributors are:
 
 - Daniel Stoekl
