@@ -38,8 +38,30 @@ nav:
   - RDF: pp/RDF.md
   - IIIF: pp/IIIF.md
 - Guidelines:
-  - Zones: []
-  - Lines: []
+  - Zones:
+    - CustomZone: gd/gdZ/CustomZone.md
+    - DamageZone: gd/gdZ/DamageZone.md
+    - DecorationZone: gd/gdZ/DecorationZone.md
+    - DigitizationArtefactZone: gd/gdZ/DigitizationArtefactZone.md
+    - DropCapitalZone: gd/gdZ/DropCapitalZone.md
+    - MainZone: gd/gdZ/MainZone.md
+    - MarginTextZone: gd/gdZ/MarginTextZone.md
+    - MusicZone: gd/gdZ/MusicZone.md
+    - NumberingZone: gd/gdZ/NumberingZone.md
+    - QuireMarksZone: gd/gdZ/QuireMarksZone.md
+    - RunningTitleZone: gd/gdZ/RunningTitleZone.md
+    - SealZone: gd/gdZ/SealZone.md
+    - StampZone: gd/gdZ/StampZone.md
+    - TableZone: gd/gdZ/TableZone.md
+    - TitlePageZone: gd/gdZ/TitlePageZone.md
+  - Lines:
+    - CustomLine: gd/gdL/CustomLine.md
+    - DefaultLine: gd/gdL/DefaultLine.md
+    - DropCapitalLine: gd/gdL/DropCapitalLine.md
+    - HeadingLine: gd/gdL/HeadingLine.md
+    - InterlinearLine: gd/gdL/InterlinearLine.md
+    - MusicLine: gd/gdL/MusicLine.md
+    - RubricLine: gd/gdL/RubricLine.md
   - Syntax: gd/syntax.md
 plugins:
 - search:
