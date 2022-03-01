@@ -21,9 +21,11 @@ jobs:
       - name: Copy content
         run: |
           ls  #Show the content
-          cp ./git-guidelines/lines/**/* ./docs/gd/gdL
-          cp ./git-guidelines/zones/**/* ./docs/gd/gdZ
+          rm ./docs/gd/**/*.md
+          cp ./git-guidelines/lines/**/*.md ./docs/gd/gdL
+          cp ./git-guidelines/zones/**/*.md ./docs/gd/gdZ
           ls ./docs/gd/gdL
+          python scripts/copyImages.py # Put the images in directories
           python scripts/update-guidelines.py # Update the menu
           rm -rf ./git-guidelines
       - name: Commit files
