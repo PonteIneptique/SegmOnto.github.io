@@ -1,0 +1,44 @@
+name: Publish docs via GitHub Pages
+on:
+  push:
+    branches:
+      - master
+      - test # For test
+  workflow_dispatch: #Allows for manual triggering
+jobs:
+  build:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout commits
+        uses: actions/checkout@v2
+      - name: Download latest version of Guidelines
+        uses: actions/checkout@v2
+        with:
+          repository: segmonto/guidelines
+          path: ./git-guidelines
+      - name: Copy content
+        run: |
+          ls  #Show the content
+          rm ./docs/gd/**/*.md
+          cp ./git-guidelines/lines/**/*.md ./docs/gd/gdL
+          cp ./git-guidelines/zones/**/*.md ./docs/gd/gdZ
+          ls ./docs/gd/gdL
+          python scripts/copyImages.py # Put the images in directories
+          python scripts/update-guidelines.py # Update the menu
+          rm -rf ./git-guidelines
+      - name: Commit files
+        if: github.ref == 'refs/heads/master' # Change if branch name changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ./docs mkdocs.yml
+          git commit -m "[Automatic] Update Guidelines" || echo "Nothing to update"
+          git push || echo "Nothing to push"
+      - name: Deploy docs
+        if: github.ref == 'refs/heads/master' # Change if branch name changes
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CONFIG_FILE: mkdocs.yml
+          REQUIREMENTS: requirements.txt
