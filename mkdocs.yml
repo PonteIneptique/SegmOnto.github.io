@@ -61,7 +61,6 @@ nav:
     - HeadingLine: gd/gdL/HeadingLine.md
     - InterlinearLine: gd/gdL/InterlinearLine.md
     - MusicLine: gd/gdL/MusicLine.md
-    - RubricLine: gd/gdL/RubricLine.md
   - Syntax: gd/syntax.md
 plugins:
 - search:
