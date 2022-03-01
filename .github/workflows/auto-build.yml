@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Copy content
         run: | # This should be better as a python script to update the mkdocs.yml as well...
+          ls
           cp git-guidelines/lines/**/* ./docs/gd/gdL
           cp git-guidelines/zones/**/* ./docs/gd/gdZ
           rm -rf ./git-guidelines
