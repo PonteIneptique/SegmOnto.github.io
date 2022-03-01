@@ -19,8 +19,9 @@ jobs:
           path: ./git-guidelines
       - name: Copy content
         run: | # This should be better as a python script to update the mkdocs.yml as well...
-          cp /git-guidelines/lines/**/* ./docs/gd/gdL
-          cp /git-guidelines/zones/**/* ./docs/gd/gdZ
+          ls  #Show the content
+          cp ./git-guidelines/lines/**/* ./docs/gd/gdL
+          cp ./git-guidelines/zones/**/* ./docs/gd/gdZ
           rm -rf ./git-guidelines
       - name: Commit files
         run: |
