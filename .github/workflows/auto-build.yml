@@ -10,8 +10,24 @@ jobs:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
+      - name: Download latest version of Guidelines
+        uses: actions/checkout@master
+        with:
+          repository: segmonto/guidelines
+          path: /tmp/guidelines
       - name: Checkout main
         uses: actions/checkout@v2
+      - name: Copy content
+        run: | # This should be better as a python script to update the mkdocs.yml as well...
+          cp /tmp/guidelines/lines/**/* ./docs/gd/gdL
+          cp /tmp/guidelines/zones/**/* ./docs/gd/gdZ
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ./docs
+          git commit -m "[Automatic] Update Guidelines" || echo "Nothing to update"
+          git push || echo "Nothing to push"
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
