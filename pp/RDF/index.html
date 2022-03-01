@@ -1,0 +1,1333 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SegmOnto Documentation">
+      
+      
+      
+      <link rel="icon" href="../../assets/icons/s.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+    
+    
+      
+        <title>RDF - SegmOnto Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700%7CIBM+Plex+Mono&display=fallback">
+        <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rdf" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SegmOnto Documentation" class="md-header__button md-logo" aria-label="SegmOnto Documentation" data-md-component="logo">
+      
+  <img src="../../assets/icons/s.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SegmOnto Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RDF
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="http://segmonto.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.1-20.4-4.2-41.8-4.2-64 0-22.2 2.1-43.6 4.2-64h185.4c2.1 20.4 3.3 41.8 3.3 64zm151.9-64c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42.9 3.2-64 0-22-1.1-43.4-3.2-64h123.1zm-10.5-32H376.7c-10-63.86-29.8-117.38-55.3-151.558C399.8 29.09 463.4 85.94 493.4 160zm-149.1 0H167.7c6.1-36.4 15.5-68.62 27-94.65 10.5-23.61 22.2-40.74 33.5-51.54C239.4 3.178 248.7 0 256 0c7.3 0 16.6 3.178 27.8 13.81 11.3 10.8 23 27.93 33.5 51.54 11.5 26.03 20.9 58.25 27 94.65zm-325.69 0C48.59 85.94 112.2 29.09 190.6 8.442 165.1 42.62 145.3 96.14 135.3 160H18.61zm112.59 32c-2.1 20.6-4.1 42-4.1 64 0 21.1 2 43.4 4.1 64H8.065C2.8 299.5 0 278.1 0 256s2.8-43.5 8.065-64H131.2zm63.5 254.6c-11.5-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.7-22.2 40.8-33.5 51.6-11.2 10.6-20.5 13.8-28.7 13.8-6.4 0-15.7-3.2-26.9-13.8-11.3-10.8-23-27.9-33.5-51.6zm-4.1 57C112.2 482.9 48.59 426.1 18.61 352H135.3c10 63.9 29.8 117.4 55.3 151.6zm130.8 0c25.5-34.2 45.3-87.7 55.3-151.6h116.7c-30 74.1-93.6 130.9-172 151.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SegmOnto Home
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SegmOnto Documentation" class="md-nav__button md-logo" aria-label="SegmOnto Documentation" data-md-component="logo">
+      
+  <img src="../../assets/icons/s.png" alt="logo">
+
+    </a>
+    SegmOnto Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="http://segmonto.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.1-20.4-4.2-41.8-4.2-64 0-22.2 2.1-43.6 4.2-64h185.4c2.1 20.4 3.3 41.8 3.3 64zm151.9-64c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42.9 3.2-64 0-22-1.1-43.4-3.2-64h123.1zm-10.5-32H376.7c-10-63.86-29.8-117.38-55.3-151.558C399.8 29.09 463.4 85.94 493.4 160zm-149.1 0H167.7c6.1-36.4 15.5-68.62 27-94.65 10.5-23.61 22.2-40.74 33.5-51.54C239.4 3.178 248.7 0 256 0c7.3 0 16.6 3.178 27.8 13.81 11.3 10.8 23 27.93 33.5 51.54 11.5 26.03 20.9 58.25 27 94.65zm-325.69 0C48.59 85.94 112.2 29.09 190.6 8.442 165.1 42.62 145.3 96.14 135.3 160H18.61zm112.59 32c-2.1 20.6-4.1 42-4.1 64 0 21.1 2 43.4 4.1 64H8.065C2.8 299.5 0 278.1 0 256s2.8-43.5 8.065-64H131.2zm63.5 254.6c-11.5-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.7-22.2 40.8-33.5 51.6-11.2 10.6-20.5 13.8-28.7 13.8-6.4 0-15.7-3.2-26.9-13.8-11.3-10.8-23-27.9-33.5-51.6zm-4.1 57C112.2 482.9 48.59 426.1 18.61 352H135.3c10 63.9 29.8 117.4 55.3 151.6zm130.8 0c25.5-34.2 45.3-87.7 55.3-151.6h116.7c-30 74.1-93.6 130.9-172 151.6z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SegmOnto Home
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Project Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Project" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pj/idea/" class="md-nav__link">
+        The idea
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pj/vocabulary/" class="md-nav__link">
+        The vocabulary
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pj/team/" class="md-nav__link">
+        The team
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Production pipeline
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Production pipeline" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Production pipeline
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/" class="md-nav__link">
+        Pipeline
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alto/" class="md-nav__link">
+        ALTO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TEI/" class="md-nav__link">
+        TEI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          RDF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        RDF
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#segmonto-modelling" class="md-nav__link">
+    segmOnto Modelling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-result" class="md-nav__link">
+    First result
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sparql" class="md-nav__link">
+    SPARQL
+  </a>
+  
+    <nav class="md-nav" aria-label="SPARQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-different-types" class="md-nav__link">
+    Retrieve different types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IIIF/" class="md-nav__link">
+        IIIF
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Guidelines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Guidelines" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guidelines
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Zones
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Zones" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Zones
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/CustomZone/" class="md-nav__link">
+        CustomZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/DamageZone/" class="md-nav__link">
+        DamageZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/DecorationZone/" class="md-nav__link">
+        DecorationZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/DigitizationArtefactZone/" class="md-nav__link">
+        DigitizationArtefactZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/DropCapitalZone/" class="md-nav__link">
+        DropCapitalZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/MainZone/" class="md-nav__link">
+        MainZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/MarginTextZone/" class="md-nav__link">
+        MarginTextZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/MusicZone/" class="md-nav__link">
+        MusicZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/NumberingZone/" class="md-nav__link">
+        NumberingZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/QuireMarksZone/" class="md-nav__link">
+        QuireMarksZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/RunningTitleZone/" class="md-nav__link">
+        RunningTitleZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/SealZone/" class="md-nav__link">
+        SealZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/StampZone/" class="md-nav__link">
+        StampZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/TableZone/" class="md-nav__link">
+        TableZone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdZ/TitlePageZone/" class="md-nav__link">
+        TitlePageZone
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Lines
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lines" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lines
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdL/CustomLine/" class="md-nav__link">
+        CustomLine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdL/DefaultLine/" class="md-nav__link">
+        DefaultLine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdL/DropCapitalLine/" class="md-nav__link">
+        DropCapitalLine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdL/HeadingLine/" class="md-nav__link">
+        HeadingLine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdL/InterlinearLine/" class="md-nav__link">
+        InterlinearLine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/gdL/MusicLine/" class="md-nav__link">
+        MusicLine
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gd/syntax/" class="md-nav__link">
+        Syntax
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#segmonto-modelling" class="md-nav__link">
+    segmOnto Modelling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-result" class="md-nav__link">
+    First result
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sparql" class="md-nav__link">
+    SPARQL
+  </a>
+  
+    <nav class="md-nav" aria-label="SPARQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retrieve-different-types" class="md-nav__link">
+    Retrieve different types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="rdf">RDF<a class="headerlink" href="#rdf" title="Permanent link">&para;</a></h1>
+<p>In order to ensure a data-driven framework with interoperable resulting data, segmOnto relies on RDF. The latter is a Knowledge Representation framework for describing and interconnecting web-based resources. Using RDF it is possible to model the relationship between the diverse parts of the text and the other elements on the page, as well as interconnect the result of the pipeline with existing metadata described by cultural institutions.</p>
+<h2 id="segmonto-modelling">segmOnto Modelling<a class="headerlink" href="#segmonto-modelling" title="Permanent link">&para;</a></h2>
+<p>Necessary for creating such interconnection as well as to query the data is a formal definition of the model using an existing ontology or the creation of a novel one. The model developed for segmOnto relies on a combination of both, as it reuses <a href="https://cidoc-crm.org">CIDOC-CRM</a>, a well-known ontology for in the Digital Humanities / Digital Cultural Heritage domain, extending it to describe three novel classes which describe the basic block of text in a written medium.</p>
+<p>The novel classes are documented <a href="https://github.com/SegmOnto/ontology">here</a> while the model used to describe the result of the segmOnto pipeline is available in the image below.</p>
+<p><img alt="Schema" src="../../assets/images/schema_text.png" /></p>
+<h2 id="first-result">First result<a class="headerlink" href="#first-result" title="Permanent link">&para;</a></h2>
+<p>The very first results that we obtain by the pipeline are below. The RDF has been generated by using <a href="https://github.com/isl/x3ml">X3ML</a>, an RDF generator that uses a script that takes XML in input and generates RDFs. </p>
+<div class="highlight"><pre><span></span><code><span class="k">@prefix</span><span class="w"> </span><span class="nn">crm:</span><span class="w"> </span><span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">sgmo:</span><span class="w"> </span><span class="nv">&lt;http://lod.unige.ch/segmOnto/&gt;</span><span class="w"> </span><span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/eSc_textblock_9a1ebf95&gt;</span>
+  <span class="kt">a</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/E25_Human-Made_Feature&gt;</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Zone</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;2&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P67_refers_to</span> <span class="nv">&lt;https://visualcontagions.unige.ch/resources/page/eSc_dummypage_/2&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/vocab/PageNumber&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;https://visualcontagions.unige.ch/resources/page/eSc_dummypage_/2&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E42_Identifier</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P1i_identifies</span> <span class="nv">&lt;https://visualcontagions.unige.ch/resources/page/eSc_dummypage_&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;https://visualcontagions.unige.ch/resources/page/eSc_dummypage_&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E22_Human-Made_Object</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Textual_Body</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P56_bears_feature</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/eSc_textblock_e2c96976&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/eSc_textblock_9a1ebf95&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ſon puis que ce ſont des feli¬ſçeu l&#39;heureux ſuccés ducités publiques. Nous auõsſçeu l&#39;heureux ſuccés duvoyage que vous auez faiten Bearn, &amp; les grands com¬mencemens que vous auezdonnez à tout ce que le Royvoudra entreprendre: Etcertes le choix qu&#39;il a fait devous pour le ſeruir en vneoccaſion de telle importan¬ce a eſté ſi generalement ap¬prouué, que ſi on remar¬quoit auparauant quelquesdeffaux en la conduite denos affaires, il faut auoüerque cette derniere action aiuſtifié toutes les autres, &amp;LETTRES DV SIEVR2&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P1_is_identified_by</span> <span class="nv">&lt;https://visualcontagions.unige.ch/resources/page/eSc_dummypage_/identifier&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://vocab.getty.edu/aat/300194222&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/eSc_textblock_e2c96976&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Zone</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P46_is_composed_of</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_1&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;LETTRES DV SIEVR&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1&gt;</span>
+  <span class="kt">a</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Zone</span><span class="p">,</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P46_is_composed_of</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_2&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_14&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_7&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_10&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_17&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_9&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/eSc_line_716cb609&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_5&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_6&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_18&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_15&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_8&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_4&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_3&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_16&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_11&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_13&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_12&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_1&gt;</span><span class="p">,</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_19&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://lod.unige.ch/segmOnto/vocab/zone&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ſon puis que ce ſont des feli¬ſçeu l&#39;heureux ſuccés ducités publiques. Nous auõsſçeu l&#39;heureux ſuccés duvoyage que vous auez faiten Bearn, &amp; les grands com¬mencemens que vous auezdonnez à tout ce que le Royvoudra entreprendre: Etcertes le choix qu&#39;il a fait devous pour le ſeruir en vneoccaſion de telle importan¬ce a eſté ſi generalement ap¬prouué, que ſi on remar¬quoit auparauant quelquesdeffaux en la conduite denos affaires, il faut auoüerque cette derniere action aiuſtifié toutes les autres, &amp;&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_2&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_2/2725291&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ſçeu l&#39;heureux ſuccés du&quot;</span><span class="p">,</span> <span class="s">&quot;ſon puis que ce ſont des feli¬&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_2/2725291&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ſon puis que ce ſont des feli¬ſçeu l&#39;heureux ſuccés du&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E55_Type</span> <span class="p">.</span>
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/vocab/zone&gt;</span> <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E55_Type</span> <span class="p">.</span>
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_14&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_14/2705290&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;prouué, que ſi on remar¬&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_14/2705290&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;prouué, que ſi on remar¬&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_7&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_7/2697222&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;mencemens que vous auez&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_7/2697222&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;mencemens que vous auez&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_10&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_10/2701290&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;certes le choix qu&#39;il a fait de&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_10/2701290&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;certes le choix qu&#39;il a fait de&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_17&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_17/2686262&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;nos affaires, il faut auoüer&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_17/2686262&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;nos affaires, il faut auoüer&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_9&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_9/2698278&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;voudra entreprendre: Et&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_9/2698278&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;voudra entreprendre: Et&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/eSc_line_716cb609&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Zone</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/eSc_line_716cb609/154165&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;2&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/eSc_line_716cb609/154165&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;2&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_5&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_5/2714287&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;voyage que vous auez fait&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_5/2714287&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;voyage que vous auez fait&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_6&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_6/2709290&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;en Bearn, &amp; les grands com¬&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_6/2709290&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;en Bearn, &amp; les grands com¬&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_18&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_18/2689282&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;que cette derniere action a&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_18/2689282&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;que cette derniere action a&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_15&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_15/2674286&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;quoit auparauant quelques&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_15/2674286&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;quoit auparauant quelques&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_8&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_8/2697286&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;donnez à tout ce que le Roy&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_8/2697286&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;donnez à tout ce que le Roy&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_4&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_4/2701315&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ſçeu l&#39;heureux ſuccés du&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_4/2701315&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ſçeu l&#39;heureux ſuccés du&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_3&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_3/2690295&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;cités publiques. Nous auõs&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_3/2690295&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;cités publiques. Nous auõs&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_16&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_16/2689226&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;deffaux en la conduite de&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_16/2689226&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;deffaux en la conduite de&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_11&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_11/2698286&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;vous pour le ſeruir en vne&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_11/2698286&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;vous pour le ſeruir en vne&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_13&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_13/2686302&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ce a eſté ſi generalement ap¬&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_13/2686302&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;ce a eſté ſi generalement ap¬&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_12&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_12/2705286&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;occaſion de telle importan¬&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_12/2705286&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;occaſion de telle importan¬&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_1&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_1/2282234&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;LETTRES DV SIEVR&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_1/2282234&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;LETTRES DV SIEVR&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/page/eSc_dummypage_/r_1_1/tl_19&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E25_Human-Made_Feature</span><span class="p">,</span> <span class="nn">sgmo</span><span class="p">:</span><span class="nt">Line</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P128_carries</span> <span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_19/2690242&gt;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;iuſtifié toutes les autres, &amp;&quot;</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://www.cidoc-crm.org/cidoc-crm/page/eSc_dummypage_/r_1_1/tl_19/2690242&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E33_Linguistic_Object</span> <span class="p">;</span>
+  <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="s">&quot;iuſtifié toutes les autres, &amp;&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;https://visualcontagions.unige.ch/resources/page/eSc_dummypage_/identifier&gt;</span>
+  <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E42_Identifier</span> <span class="p">;</span>
+  <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="s">&quot;eSc_dummypage_&quot;</span> <span class="p">.</span>
+
+<span class="nv">&lt;http://vocab.getty.edu/aat/300194222&gt;</span> <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E55_Type</span> <span class="p">.</span>
+<span class="nv">&lt;http://lod.unige.ch/segmOnto/vocab/PageNumber&gt;</span> <span class="kt">a</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">E55_Type</span> <span class="p">.</span>
+</code></pre></div>
+<h2 id="sparql">SPARQL<a class="headerlink" href="#sparql" title="Permanent link">&para;</a></h2>
+<p>The great advantage of transforming the data in RDF is the possibility to use SPARQL to retrieve information and text. We will start listing possible queries that can be useful to discover more about the underlying data</p>
+<h3 id="retrieve-different-types">Retrieve different types<a class="headerlink" href="#retrieve-different-types" title="Permanent link">&para;</a></h3>
+<p>The following query retrieves the different types associated with a Line, Zone or Textual Body:</p>
+<div class="highlight"><pre><span></span><code><span class="k">PREFIX</span> <span class="nn">rdf</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">crm</span><span class="p">:</span> <span class="nl">&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?obj</span> <span class="nv">?type</span> <span class="k">WHERE</span> <span class="p">{</span>
+   <span class="nv">?sub</span> <span class="nn">rdf</span><span class="p">:</span><span class="nt">type</span> <span class="nv">?obj</span> <span class="p">;</span>
+         <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nv">?type</span>
+  <span class="k">FILTER</span><span class="p">(</span><span class="nf">regex</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="nv">?obj</span><span class="p">),</span> <span class="s">&quot;unige&quot;</span> <span class="p">)</span> <span class="p">)</span>
+<span class="p">}</span> <span class="k">LIMIT</span> <span class="mi">10</span>
+</code></pre></div>
+<p>The following query retrieves the text for each line which is classified with a vocabulary entry:</p>
+<div class="highlight"><pre><span></span><code><span class="k">PREFIX</span> <span class="nn">rdf</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">crm</span><span class="p">:</span> <span class="nl">&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?sub</span> <span class="nv">?text</span> <span class="k">WHERE</span> <span class="p">{</span>
+   <span class="nv">?sub</span> <span class="nv">?pre</span> <span class="nv">?obj</span> <span class="p">;</span>
+         <span class="nn">crm</span><span class="p">:</span><span class="nt">P2_has_type</span> <span class="nl">&lt;http://codicologia.irht.cnrs.fr/term-1735&gt;</span> <span class="p">;</span>
+         <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="nv">?text</span> <span class="p">.</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The following text retrieves the text for each Textual Body:</p>
+<div class="highlight"><pre><span></span><code><span class="k">PREFIX</span> <span class="nn">rdf</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">crm</span><span class="p">:</span> <span class="nl">&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;</span>
+<span class="k">SELECT</span> <span class="nv">?text</span> <span class="k">WHERE</span> <span class="p">{</span>
+   <span class="nv">?sub</span> <span class="k">a</span> <span class="nl">&lt;http://lod.unige.ch/segmOnto/Textual_Body&gt;</span> <span class="p">;</span>
+        <span class="nn">crm</span><span class="p">:</span><span class="nt">P190_has_symbolic_contents</span> <span class="nv">?text</span> <span class="p">.</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The following query retrieve the number of lines detected for each zone:</p>
+<div class="highlight"><pre><span></span><code><span class="k">PREFIX</span> <span class="nn">rdf</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">rdfs</span><span class="p">:</span> <span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">crm</span><span class="p">:</span> <span class="nl">&lt;http://www.cidoc-crm.org/cidoc-crm/&gt;</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?zone</span> <span class="p">(</span><span class="nf">count</span><span class="p">(</span><span class="k">distinct</span> <span class="nv">?line</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?lines</span><span class="p">)</span> <span class="k">WHERE</span> <span class="p">{</span>
+   <span class="nv">?page</span> <span class="k">a</span> <span class="nl">&lt;http://lod.unige.ch/segmOnto/Textual_Body&gt;</span> <span class="p">;</span>
+            <span class="nn">crm</span><span class="p">:</span><span class="nt">P56_bears_feature</span> <span class="nv">?zone</span> <span class="p">.</span>
+  <span class="nv">?zone</span> <span class="nn">crm</span><span class="p">:</span><span class="nt">P46_is_composed_of</span> <span class="nv">?line</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?zone</span>
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../TEI/" class="md-footer__link md-footer__link--prev" aria-label="Previous: TEI" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              TEI
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../IIIF/" class="md-footer__link md-footer__link--next" aria-label="Next: IIIF" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              IIIF
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/SegmOnto/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://SegmOnto.github.io" target="_blank" rel="noopener" title="SegmOnto.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.1-20.4-4.2-41.8-4.2-64 0-22.2 2.1-43.6 4.2-64h185.4c2.1 20.4 3.3 41.8 3.3 64zm151.9-64c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42.9 3.2-64 0-22-1.1-43.4-3.2-64h123.1zm-10.5-32H376.7c-10-63.86-29.8-117.38-55.3-151.558C399.8 29.09 463.4 85.94 493.4 160zm-149.1 0H167.7c6.1-36.4 15.5-68.62 27-94.65 10.5-23.61 22.2-40.74 33.5-51.54C239.4 3.178 248.7 0 256 0c7.3 0 16.6 3.178 27.8 13.81 11.3 10.8 23 27.93 33.5 51.54 11.5 26.03 20.9 58.25 27 94.65zm-325.69 0C48.59 85.94 112.2 29.09 190.6 8.442 165.1 42.62 145.3 96.14 135.3 160H18.61zm112.59 32c-2.1 20.6-4.1 42-4.1 64 0 21.1 2 43.4 4.1 64H8.065C2.8 299.5 0 278.1 0 256s2.8-43.5 8.065-64H131.2zm63.5 254.6c-11.5-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.7-22.2 40.8-33.5 51.6-11.2 10.6-20.5 13.8-28.7 13.8-6.4 0-15.7-3.2-26.9-13.8-11.3-10.8-23-27.9-33.5-51.6zm-4.1 57C112.2 482.9 48.59 426.1 18.61 352H135.3c10 63.9 29.8 117.4 55.3 151.6zm130.8 0c25.5-34.2 45.3-87.7 55.3-151.6h116.7c-30 74.1-93.6 130.9-172 151.6z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      
+    
+  </body>
+</html>
