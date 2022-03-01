@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - master
+      - patch-1 # For test
 jobs:
   build:
     name: Deploy docs
