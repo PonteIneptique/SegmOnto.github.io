@@ -30,5 +30,6 @@ replace(yml["nav"], ["Guidelines", "Lines"], [
     for filename in sorted(glob.glob("./docs/gd/gdL/**/*.md"))
 ])
 
-#for file in glob.glob()
-print(yaml.dump(yml))
+
+with open("mkdocs.yml", "w") as f:
+	f.write(yaml.dump(yml))
