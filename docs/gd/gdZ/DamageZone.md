@@ -34,6 +34,3 @@ Suggested values include:
 
 Identifying damaged area might prove useful, as they can affect the result of text prediction.
 
-
-
-<embed  src="https://raw.githubusercontent.com/SegmOnto/Guidelines/main/zones/CustomZone/CustomZone.md" title="test"/>
