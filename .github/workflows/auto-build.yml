@@ -18,10 +18,11 @@ jobs:
           repository: segmonto/guidelines
           path: ./git-guidelines
       - name: Copy content
-        run: | # This should be better as a python script to update the mkdocs.yml as well...
+        run: |
           ls  #Show the content
           cp ./git-guidelines/lines/**/* ./docs/gd/gdL
           cp ./git-guidelines/zones/**/* ./docs/gd/gdZ
+          python scripts/update-guidelines.py # Update the menu
           rm -rf ./git-guidelines
       - name: Commit files
         run: |
