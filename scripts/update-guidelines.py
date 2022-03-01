@@ -20,16 +20,16 @@ replace(yml["nav"], ["Guidelines", "Zones"], [
     {
         os.path.basename(filename.replace(".md", "")): filename
     }
-    for filename in sorted(glob.glob("./docs/gd/gdZ/**/*.md"))
+    for filename in sorted(glob.glob("./gd/gdZ/**/*.md"))
 ])
 
 replace(yml["nav"], ["Guidelines", "Lines"], [
     {
         os.path.basename(filename.replace(".md", "")): filename
     }
-    for filename in sorted(glob.glob("./docs/gd/gdL/**/*.md"))
+    for filename in sorted(glob.glob("./gd/gdL/**/*.md"))
 ])
 
 
 with open("mkdocs.yml", "w") as f:
-	f.write(yaml.dump(yml))
+    f.write(yaml.dump(yml))
