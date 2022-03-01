@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: segmonto/guidelines
-          path: /git-guidelines
+          path: ./git-guidelines
       - name: Copy content
         run: | # This should be better as a python script to update the mkdocs.yml as well...
           cp /git-guidelines/lines/**/* ./docs/gd/gdL
