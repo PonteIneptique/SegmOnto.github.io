@@ -5,6 +5,7 @@ on:
       - main
       - master
       - patch-1 # For test
+  workflow_dispatch: #Allows for manual triggering
 jobs:
   build:
     name: Deploy docs
@@ -22,6 +23,7 @@ jobs:
           ls  #Show the content
           cp ./git-guidelines/lines/**/* ./docs/gd/gdL
           cp ./git-guidelines/zones/**/* ./docs/gd/gdZ
+          ls ./docs/gd/gdL
           python scripts/update-guidelines.py # Update the menu
           rm -rf ./git-guidelines
       - name: Commit files
